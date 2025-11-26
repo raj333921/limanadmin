@@ -1,0 +1,137 @@
+const API_URL = "http://localhost:3000";
+
+const dataProvider = {
+    getList: async (resource) => {
+        if (resource === "questions") {
+            const token = localStorage.getItem("token");
+            const res = await fetch(`${API_URL}/quiz`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const data = await res.json();
+            return { data, total: data.length };
+        }
+        return { data: [], total: 0 };
+    },
+
+create: async (resource, params) => {
+    if (resource === "questions") {
+        const token = localStorage.getItem("token");
+        const formData = new FormData();
+
+        console.log(params.data);
+
+        // Questions in multiple languages
+        const questions = [
+            {
+                en: params.data.question?.en,
+                fr: params.data.question?.fr,
+                nl: params.data.question?.nl,
+            }
+        ];
+
+        // Options in multiple languages
+        const options = [
+            { en: params.data.optionA?.en, fr: params.data.optionA?.fr, nl: params.data.optionA?.nl },
+            { en: params.data.optionB?.en, fr: params.data.optionB?.fr, nl: params.data.optionB?.nl },
+            { en: params.data.optionC?.en, fr: params.data.optionC?.fr, nl: params.data.optionC?.nl },
+            { en: params.data.optionD?.en, fr: params.data.optionD?.fr, nl: params.data.optionD?.nl },
+        ];
+
+        // Correct answer index
+        const answerMap = { A: 0, B: 1, C: 2, D: 3 };
+        const correct_option = answerMap[params.data.answer];
+
+        // Append fields
+        formData.append("level", params.data.level);
+        formData.append("question", JSON.stringify(questions));
+        formData.append("options", JSON.stringify(options));
+        formData.append("correct_option", correct_option);
+
+        // Append image if exists
+        if (params.data.image && params.data.image.rawFile) {
+            formData.append("image", params.data.image.rawFile);
+        }
+
+        const res = await fetch(`${API_URL}/admin/question`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${token}`, // no Content-Type header!
+            },
+            body: formData,
+        });
+
+        const data = await res.json();
+        return { data };
+    }
+},
+
+
+   update: async (resource, params) => {
+       if (resource === "questions") {
+           const token = localStorage.getItem("token");
+           const formData = new FormData();
+
+           const options = [
+               { en: params.data.optionA?.en, fr: params.data.optionA?.fr, nl: params.data.optionA?.nl },
+               { en: params.data.optionB?.en, fr: params.data.optionB?.fr, nl: params.data.optionB?.nl },
+               { en: params.data.optionC?.en, fr: params.data.optionC?.fr, nl: params.data.optionC?.nl },
+               { en: params.data.optionD?.en, fr: params.data.optionD?.fr, nl: params.data.optionD?.nl },
+           ];
+
+           const questions = [
+               { en: params.data.question?.en, fr: params.data.question?.fr, nl: params.data.question?.nl }
+           ];
+
+           const answerMap = { A: 0, B: 1, C: 2, D: 3 };
+           const correct_option = answerMap[params.data.answer];
+
+           formData.append("level", params.data.level);
+           formData.append("question", JSON.stringify(questions));
+           formData.append("options", JSON.stringify(options));
+           formData.append("correct_option", correct_option);
+
+           if (params.data.image && params.data.image.raw) {
+               formData.append("image", params.data.image.raw);
+           }
+
+           const res = await fetch(`${API_URL}/admin/question/${params.id}`, {
+               method: "PUT",
+               headers: { Authorization: `Bearer ${token}` },
+               body: formData,
+           });
+
+           const data = await res.json();
+           return { data };
+       }
+   };
+
+
+    delete: async (resource, params) => {
+        if (resource === "questions") {
+            const token = localStorage.getItem("token");
+
+            await fetch(`${API_URL}/admin/question/${params.previousData.level}/${params.id}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            return { data: params.previousData };
+        }
+    },
+     getOne: async (resource, params) => {
+            if (resource === "questions") {
+                const token = localStorage.getItem("token");
+                const res = await fetch(`${API_URL}/admin/question/${params.id}`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                const data = await res.json();
+                return { data };
+            }
+        }
+};
+
+export default dataProvider;
