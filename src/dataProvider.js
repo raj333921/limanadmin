@@ -33,6 +33,9 @@ const dataProvider = {
                 { en: params.data.question?.en, fr: params.data.question?.fr, nl: params.data.question?.nl }
             ];
 
+ const explanations = [
+                            { en: params.data.explantion?.en, fr: params.data.explantion?.fr, nl: params.data.explantion?.nl }
+                        ];
             const options = [
                 { en: params.data.optionA?.en, fr: params.data.optionA?.fr, nl: params.data.optionA?.nl },
                 { en: params.data.optionB?.en, fr: params.data.optionB?.fr, nl: params.data.optionB?.nl },
@@ -44,6 +47,7 @@ const dataProvider = {
             const correct_option = answerMap[params.data.answer];
 
             formData.append("level", params.data.level);
+            formData.append("explanation", JSON.stringify(explanations));
             formData.append("question", JSON.stringify(questions));
             formData.append("options", JSON.stringify(options));
             formData.append("correct_option", correct_option);
@@ -71,6 +75,10 @@ const dataProvider = {
                 { en: params.data.question?.en, fr: params.data.question?.fr, nl: params.data.question?.nl }
             ];
 
+            const explanations = [
+                            { en: params.data.explantion?.en, fr: params.data.explantion?.fr, nl: params.data.explantion?.nl }
+                        ];
+
             const options = [
                 { en: params.data.optionA?.en, fr: params.data.optionA?.fr, nl: params.data.optionA?.nl },
                 { en: params.data.optionB?.en, fr: params.data.optionB?.fr, nl: params.data.optionB?.nl },
@@ -82,6 +90,7 @@ const dataProvider = {
             const correct_option = answerMap[params.data.answer];
 
             formData.append("level", params.data.level);
+            formData.append("explanation", JSON.stringify(explanations));
             formData.append("question", JSON.stringify(questions));
             formData.append("options", JSON.stringify(options));
             formData.append("correct_option", correct_option);

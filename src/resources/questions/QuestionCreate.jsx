@@ -82,6 +82,12 @@ const QuestionCreate = () => (
                 </div>
             ))}
 
+<div style={{ display: "flex", gap: "1rem" }}>
+                <TextInput source="explanation.en" label="Explanation (EN)" validate={required()} />
+                <TextInput source="explanation.fr" label="Explanation (FR)" validate={required()} />
+                <TextInput source="explanation.nl" label="Explanation (NL)" validate={required()} />
+            </div>
+
             {/* Correct answer */}
             <SelectInput
                 source="answer"

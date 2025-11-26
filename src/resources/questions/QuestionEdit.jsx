@@ -43,6 +43,7 @@ const QuestionEditForm = () => {
     if (!record) return <div>Loading...</div>;
 
     const question = record.question?.[0] || { en: "", fr: "", nl: "" };
+    const explanation = record.explanation?.[0] || { en: "", fr: "", nl: "" };
     const options = record.options || [{}, {}, {}, {}];
 
     return (
@@ -76,6 +77,11 @@ const QuestionEditForm = () => {
                 </div>
             ))}
 
+<div style={{ display: "flex", gap: "1rem" }}>
+                <TextInput source="explanation.en" label="Explanation (EN)"  defaultValue={explanation.en} validate={required()} />
+                <TextInput source="explanation.fr" label="Explanation (FR)" defaultValue={explanation.fr} validate={required()} />
+                <TextInput source="explanation.nl" label="Explanation (NL)" defaultValue={explanation.nl} validate={required()} />
+            </div>
             <SelectInput
                 source="answer"
                 label="Correct Answer"
