@@ -34,7 +34,7 @@ const dataProvider = {
             ];
 
  const explanations = [
-                            { en: params.data.explantion?.en, fr: params.data.explantion?.fr, nl: params.data.explantion?.nl }
+                            { en: params.data.explanation?.en, fr: params.data.explanation?.fr, nl: params.data.explanation?.nl }
                         ];
             const options = [
                 { en: params.data.optionA?.en, fr: params.data.optionA?.fr, nl: params.data.optionA?.nl },
@@ -76,7 +76,7 @@ const dataProvider = {
             ];
 
             const explanations = [
-                            { en: params.data.explantion?.en, fr: params.data.explantion?.fr, nl: params.data.explantion?.nl }
+                            { en: params.data.explanation?.en, fr: params.data.explanation?.fr, nl: params.data.explanation?.nl }
                         ];
 
             const options = [
