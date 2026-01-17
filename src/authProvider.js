@@ -2,7 +2,7 @@ const authProvider = {
     login: ({ username, password }) => {
         console.log(username);
         // Map 'email' to the key your backend expects
-        return fetch("http://localhost:3000/auth/admin/login", {
+        return fetch("https://sachadigi.com/limanplatform/auth/admin/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

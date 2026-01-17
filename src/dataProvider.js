@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://sachadigi.com/limanplatform";
 
 const dataProvider = {
     getList: async (resource) => {
@@ -66,7 +66,7 @@ const dataProvider = {
         }
     },
 
-    update: async (resource, params) => {
+    update: async (resource, params) => {uii
         if (resource === "questions") {
             const token = localStorage.getItem("token");
             const formData = new FormData();
