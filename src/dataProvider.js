@@ -10,6 +10,14 @@ const dataProvider = {
             const data = await res.json();
             return { data, total: data.length };
         }
+        if (resource === "tokens") {
+                    const token = localStorage.getItem("token");
+                    const res = await fetch(`${API_URL}/token/`, {
+                        headers: { Authorization: `Bearer ${token}` },
+                    });
+                    const data = await res.json();
+                    return { data, total: data.length };
+                }
         return { data: [], total: 0 };
     },
 
@@ -22,18 +30,24 @@ const dataProvider = {
             const data = await res.json();
             return { data };
         }
+        if (resource === "tokens") {
+                    const token = localStorage.getItem("token");
+                    const res = await fetch(`${API_URL}/token/${params.id}`, {
+                        headers: { Authorization: `Bearer ${token}` },
+                    });
+                    const data = await res.json();
+                    return { data };
+                }
     },
 
     create: async (resource, params) => {
         if (resource === "questions") {
             const token = localStorage.getItem("token");
             const formData = new FormData();
-
             const questions = [
                 { en: params.data.question?.en, fr: params.data.question?.fr, nl: params.data.question?.nl }
             ];
-
- const explanations = [
+            const explanations = [
                             { en: params.data.explanation?.en, fr: params.data.explanation?.fr, nl: params.data.explanation?.nl }
                         ];
             const options = [
@@ -45,17 +59,14 @@ const dataProvider = {
 
             const answerMap = { A: 0, B: 1, C: 2, D: 3 };
             const correct_option = answerMap[params.data.answer];
-
             formData.append("level", params.data.level);
             formData.append("explanation", JSON.stringify(explanations));
             formData.append("question", JSON.stringify(questions));
             formData.append("options", JSON.stringify(options));
             formData.append("correct_option", correct_option);
-
             if (params.data.image && params.data.image.rawFile) {
                 formData.append("image", params.data.image.rawFile);
             }
-
             const res = await fetch(`${API_URL}/admin/question`, {
                 method: "POST",
                 headers: { Authorization: `Bearer ${token}` },
@@ -64,6 +75,26 @@ const dataProvider = {
             const data = await res.json();
             return { data };
         }
+        if (resource === "tokens") {
+            const token = localStorage.getItem("token");
+            const res = await fetch(`${API_URL}/token/`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`, // remove if not required
+              },
+              body: JSON.stringify({
+                email: params.data.email,
+                code: params.data.code,
+              }),
+            });
+
+            if (!res.ok) {
+              throw new Error("Request failed");
+            }
+            const data = await res.json();
+            return { data };
+          }
     },
 
     update: async (resource, params) => {uii
@@ -107,6 +138,26 @@ const dataProvider = {
             const data = await res.json();
             return { data };
         }
+        if (resource === "tokens") {
+                    const token = localStorage.getItem("token");
+                    const res = await fetch(`${API_URL}/token/`, {
+                      method: "PUT",
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`, // remove if not required
+                      },
+                      body: JSON.stringify({
+                        email: params.data.email,
+                        code: params.data.code,
+                      }),
+                    });
+
+                    if (!res.ok) {
+                      throw new Error("Request failed");
+                    }
+                    const data = await res.json();
+                    return { data };
+                  }
     },
 
     delete: async (resource, params) => {
@@ -118,6 +169,14 @@ const dataProvider = {
             });
             return { data: params.previousData };
         }
+         if (resource === "tokens") {
+             const token = localStorage.getItem("token");
+             await fetch(`${API_URL}/token/${params.id}`, {
+                        method: "DELETE",
+                        headers: { Authorization: `Bearer ${token}` },
+                    });
+                    return { data: params.previousData };
+         }
     }
 };
 
