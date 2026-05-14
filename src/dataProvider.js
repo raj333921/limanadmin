@@ -1,5 +1,5 @@
 const API_URL = "https://sachadigi.com/limanplatform";
-
+//const API_URL= "http://localhost:3000/limanplatform"
 const dataProvider = {
     getList: async (resource) => {
         if (resource === "questions") {
@@ -12,8 +12,9 @@ const dataProvider = {
         }
         if (resource === "tokens") {
                     const token = localStorage.getItem("token");
+                    const company = localStorage.getItem("comp");
                     const res = await fetch(`${API_URL}/token/`, {
-                        headers: { Authorization: `Bearer ${token}` },
+                        headers: { Authorization: `Bearer ${token}`,"comp": company }
                     });
                     const data = await res.json();
                     return { data, total: data.length };
@@ -32,8 +33,9 @@ const dataProvider = {
         }
         if (resource === "tokens") {
                     const token = localStorage.getItem("token");
+                    const company = localStorage.getItem("comp");
                     const res = await fetch(`${API_URL}/token/${params.id}`, {
-                        headers: { Authorization: `Bearer ${token}` },
+                        headers: { Authorization: `Bearer ${token}`,"comp": company },
                     });
                     const data = await res.json();
                     return { data };
@@ -77,6 +79,7 @@ const dataProvider = {
         }
         if (resource === "tokens") {
             const token = localStorage.getItem("token");
+            const company = localStorage.getItem("comp");
             const res = await fetch(`${API_URL}/token/`, {
               method: "POST",
               headers: {
@@ -86,6 +89,7 @@ const dataProvider = {
               body: JSON.stringify({
                 email: params.data.email,
                 code: params.data.code,
+                comp: company
               }),
             });
 
@@ -148,7 +152,7 @@ const dataProvider = {
                       },
                       body: JSON.stringify({
                         email: params.data.email,
-                        code: params.data.code,
+                        code: params.data.code
                       }),
                     });
 
@@ -171,9 +175,10 @@ const dataProvider = {
         }
          if (resource === "tokens") {
              const token = localStorage.getItem("token");
+             const company = localStorage.getItem("comp");
              await fetch(`${API_URL}/token/${params.id}`, {
                         method: "DELETE",
-                        headers: { Authorization: `Bearer ${token}` },
+                        headers: { Authorization: `Bearer ${token}`,"comp": company },
                     });
                     return { data: params.previousData };
          }
