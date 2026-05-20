@@ -1,0 +1,29 @@
+{
+  "header": {
+    "title": "Driving School Admin",
+    "welcome": "Welcome"
+  },
+  "login": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "tokens": {
+    "title": "Tokens",
+    "email_id": "Email Id",
+    "test_code": "Test Code",
+    "used": "Used",
+    "created_at": "Created at"
+  },
+  "questions": {
+    "title": "Questions",
+    "question": "Question",
+    "level": "Level",
+    "options": "Options",
+    "explanation": "Explanation",
+    "correct_answer": "Correct Answer"
+  },
+  "actions": {
+    "edit" : "Edit",
+    "delete" : "Delete"
+  }
+}

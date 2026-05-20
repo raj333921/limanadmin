@@ -1,0 +1,29 @@
+{
+  "header": {
+    "title": "Rijschool Beheer",
+    "welcome": "Welkom"
+  },
+  "login": {
+    "email": "E-mail",
+    "password": "Wachtwoord"
+  },
+  "tokens": {
+    "title": "Tokens",
+    "email_id": "E-mail-ID",
+    "test_code": "Testcode",
+    "used": "Gebruikt",
+    "created_at": "Aangemaakt op"
+  },
+  "questions": {
+    "title": "Vragen",
+    "question": "Vraag",
+    "level": "Niveau",
+    "options": "Opties",
+    "explanation": "Uitleg",
+    "correct_answer": "Juiste antwoord"
+  },
+  "actions": {
+    "edit" : "Edit",
+    "delete" : "Delete"
+  }
+}

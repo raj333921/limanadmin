@@ -1,0 +1,29 @@
+{
+  "header": {
+    "title": "Administration de l'auto-école",
+    "welcome": "Bienvenue"
+  },
+  "login": {
+    "email": "E-mail",
+    "password": "Mot de passe"
+  },
+  "tokens": {
+    "title": "Jetons",
+    "email_id": "Identifiant e-mail",
+    "test_code": "Code de test",
+    "used": "Utilisé",
+    "created_at": "Créé le"
+  },
+  "questions": {
+    "title": "Questions",
+    "question": "Question",
+    "level": "Niveau",
+    "options": "Options",
+    "explanation": "Explication",
+    "correct_answer": "Bonne réponse"
+  },
+  "actions": {
+    "edit" : "Edit",
+    "delete" : "Delete"
+  }
+}
