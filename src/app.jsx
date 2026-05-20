@@ -7,10 +7,13 @@ import TokenEdit from "./resources/tokens/TokenEdit";
 import QuestionList from "./resources/questions/QuestionList";
 import QuestionCreate from "./resources/questions/QuestionCreate";
 import QuestionEdit from "./resources/questions/QuestionEdit";
+import SettingsList from "./resources/settings/SettingsList";
 import CustomLoginPage from "./layout/Login";
+import CustomLayout from "./layout/CustomLayout";
+import { Settings } from '@mui/icons-material';
 
 const App = () => (
-    <Admin authProvider={authProvider} dataProvider={dataProvider} loginPage={CustomLoginPage}>
+    <Admin authProvider={authProvider} dataProvider={dataProvider} loginPage={CustomLoginPage} layout={CustomLayout}>
     <Resource
                         name="tokens"
                         list={TokenList}
@@ -22,6 +25,11 @@ const App = () => (
             list={QuestionList}
             create={QuestionCreate}
             edit={QuestionEdit}
+        />
+        <Resource
+            name="settings"
+            list={SettingsList}
+            icon={Settings}
         />
     </Admin>
 );
