@@ -1,15 +1,11 @@
-//const API_URL= "http://localhost:3000/limanplatform/auth/admin/login";
 const API_URL = "https://sachadigi.com/limanplatform/auth/admin/login";
+
 const authProvider = {
     login: ({ username, password }) => {
-        console.log(username);
-        // Map 'email' to the key your backend expects
         return fetch(`${API_URL}`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, password }), // Use email here
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
         })
             .then(res => {
                 if (!res.ok) throw new Error("Invalid credentials");
@@ -18,7 +14,7 @@ const authProvider = {
             .then(data => {
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("comp", data.admin.company);
-                localStorage.setItem("adminInfo", data.admin);
+                localStorage.setItem("adminInfo", JSON.stringify(data.admin)); // FIX: stringify this!
                 return Promise.resolve();
             });
     },
@@ -36,6 +32,15 @@ const authProvider = {
     checkError: () => Promise.resolve(),
 
     getPermissions: () => Promise.resolve(),
+
+    // ADD THIS METHOD
+    getIdentity: () => {
+        const adminInfo = localStorage.getItem("adminInfo");
+        if (adminInfo) {
+            return Promise.resolve({ admin: JSON.parse(adminInfo)});
+        }
+        return Promise.reject(new Error("No identity found"));
+    },
 };
 
 export default authProvider;
