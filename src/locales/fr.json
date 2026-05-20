@@ -1,18 +1,23 @@
 {
   "header": {
-    "title": "Administration de l'auto-école",
+    "title": "Admin École de Conduite",
     "welcome": "Bienvenue"
   },
   "login": {
-    "email": "E-mail",
-    "password": "Mot de passe"
+    "email": "Email",
+    "password": "Mot de passe",
+    "signin": "Se connecter"
   },
   "tokens": {
     "title": "Jetons",
-    "email_id": "Identifiant e-mail",
-    "test_code": "Code de test",
+    "id": "ID",
+    "email_id": "Email",
+    "test_code": "Code de Test",
     "used": "Utilisé",
-    "created_at": "Créé le"
+    "created_at": "Créé le",
+    "create": "Créer un Jeton",
+    "edit": "Modifier le Jeton",
+    "delete": "Supprimer"
   },
   "questions": {
     "title": "Questions",
@@ -20,10 +25,40 @@
     "level": "Niveau",
     "options": "Options",
     "explanation": "Explication",
-    "correct_answer": "Bonne réponse"
+    "correct_answer": "Bonne Réponse",
+    "option_a": "Option A",
+    "option_b": "Option B",
+    "option_c": "Option C",
+    "option_d": "Option D",
+    "create": "Créer une Question",
+    "edit": "Modifier la Question"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "header": "Informations de l’auto-école",
+    "email": "Adresse e-mail",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "appName": "Nom de l’application",
+    "companyName": "Nom de l’entreprise",
+    "vatNumber": "Numéro de TVA",
+    "schoolNumber": "Numéro d’auto-école",
+    "drivingSchoolInfo": "Informations de l’auto-école",
+    "adminInfo": "Informations administrateur",
+    "addressInfor": "Informations d’adresse",
+    "address1": "Adresse ligne 1",
+    "address2": "Adresse ligne 2",
+    "city": "Ville",
+    "postalCode": "Code postal",
+    "country": "Pays"
   },
   "actions": {
-    "edit" : "Edit",
-    "delete" : "Delete"
+    "save": "Enregistrer",
+    "update": "Mettre à jour",
+    "clear": "Effacer",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "create": "Créer"
   }
 }

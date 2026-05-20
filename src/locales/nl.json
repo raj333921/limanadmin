@@ -1,18 +1,23 @@
 {
   "header": {
-    "title": "Rijschool Beheer",
+    "title": "Rijschool Admin",
     "welcome": "Welkom"
   },
   "login": {
-    "email": "E-mail",
-    "password": "Wachtwoord"
+    "email": "Email",
+    "password": "Wachtwoord",
+    "signin": "Inloggen"
   },
   "tokens": {
     "title": "Tokens",
-    "email_id": "E-mail-ID",
+    "id": "ID",
+    "email_id": "Email",
     "test_code": "Testcode",
     "used": "Gebruikt",
-    "created_at": "Aangemaakt op"
+    "created_at": "Gemaakt op",
+    "create": "Token Maken",
+    "edit": "Token Bewerken",
+    "delete": "Verwijderen"
   },
   "questions": {
     "title": "Vragen",
@@ -20,10 +25,40 @@
     "level": "Niveau",
     "options": "Opties",
     "explanation": "Uitleg",
-    "correct_answer": "Juiste antwoord"
+    "correct_answer": "Juist Antwoord",
+    "option_a": "Optie A",
+    "option_b": "Optie B",
+    "option_c": "Optie C",
+    "option_d": "Optie D",
+    "create": "Vraag Maken",
+    "edit": "Vraag Bewerken"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "header": "Rijschoolinformatie",
+    "email": "E-mailadres",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "appName": "Applicatienaam",
+    "companyName": "Bedrijfsnaam",
+    "vatNumber": "Btw-nummer",
+    "schoolNumber": "Rijschoolnummer",
+    "drivingSchoolInfo": "Rijschoolinformatie",
+    "adminInfo": "Beheerdersinformatie",
+    "addressInfor": "Adresinformatie",
+    "address1": "Adresregel 1",
+    "address2": "Adresregel 2",
+    "city": "Stad",
+    "postalCode": "Postcode",
+    "country": "Land"
   },
   "actions": {
-    "edit" : "Edit",
-    "delete" : "Delete"
+    "save": "Opslaan",
+    "update": "Bijwerken",
+    "clear": "Wissen",
+    "cancel": "Annuleren",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "create": "Maken"
   }
 }

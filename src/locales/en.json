@@ -5,14 +5,19 @@
   },
   "login": {
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "signin": "Sign In"
   },
   "tokens": {
     "title": "Tokens",
+    "id": "ID",
     "email_id": "Email Id",
     "test_code": "Test Code",
     "used": "Used",
-    "created_at": "Created at"
+    "created_at": "Created at",
+    "create": "Create Token",
+    "edit": "Edit Token",
+    "delete": "Delete"
   },
   "questions": {
     "title": "Questions",
@@ -20,10 +25,40 @@
     "level": "Level",
     "options": "Options",
     "explanation": "Explanation",
-    "correct_answer": "Correct Answer"
+    "correct_answer": "Correct Answer",
+    "option_a": "Option A",
+    "option_b": "Option B",
+    "option_c": "Option C",
+    "option_d": "Option D",
+    "create": "Create Question",
+    "edit": "Edit Question"
+  },
+  "settings": {
+    "title": "Settings",
+    "header": "Driving School Information",
+    "email" : "Email address",
+    "firstName" : "First Name",
+    "lastName" : "Last Name",
+    "appName" : "Application Name",
+    "companyName" : "Company Name",
+    "vatNumber": "VAT Number",
+    "schoolNumber" : "Driving School Number",
+    "drivingSchoolInfo": "Driving School Information",
+    "adminInfo": "Admin Information",
+    "addressInfor": "Address Informtion",
+    "address1" : "Address Line 1",
+    "address2": "Address Line 2",
+    "city": "City",
+    "postalCode":"Postal Code",
+    "country": "Country"
   },
   "actions": {
-    "edit" : "Edit",
-    "delete" : "Delete"
+    "save": "Save",
+    "update": "Update",
+    "clear": "Clear",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create"
   }
 }
