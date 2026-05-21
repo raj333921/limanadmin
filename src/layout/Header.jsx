@@ -1,25 +1,40 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Box, Breadcrumbs, Link as MuiLink } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 import { useGetIdentity } from 'react-admin';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
 import LanguageSwitcher from '../components/LanguageSwitcher';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const Header = (props) => {
   const { identity } = useGetIdentity();
   const { t } = useTranslation();
-  const location = useLocation();
 
-  // Determine current page title based on route
+  // Get page title from props or location
   const getPageTitle = () => {
-    if (location.pathname.includes('settings')) {
-      return t('settings.title');
-    } else if (location.pathname.includes('tokens')) {
-      return t('tokens.title');
-    } else if (location.pathname.includes('questions')) {
-      return t('questions.title');
+    // Try to get resource from props
+    if (props.resource) {
+      if (props.resource === 'settings') {
+        return t('settings.title');
+      } else if (props.resource === 'tokens') {
+        return t('tokens.title');
+      } else if (props.resource === 'questions') {
+        return t('questions.title');
+      }
     }
+    
+    // Fallback: check localStorage for current resource
+    try {
+      const currentResource = localStorage.getItem('ra-resource');
+      if (currentResource === 'settings') {
+        return t('settings.title');
+      } else if (currentResource === 'tokens') {
+        return t('tokens.title');
+      } else if (currentResource === 'questions') {
+        return t('questions.title');
+      }
+    } catch (e) {
+      // localStorage not available
+    }
+    
     return '';
   };
 
@@ -54,13 +69,14 @@ const Header = (props) => {
           
           {pageTitle && (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-              <Box sx={{ width: 1, height: 24, background: 'linear-gradient(90deg, transparent, #e0e0e0, transparent)', borderRadius: 1 }} />
+              <Box sx={{ width: 30, height: 2, background: 'linear-gradient(90deg, #e0e0e0, transparent)', borderRadius: 1 }} />
               <Typography 
                 variant="body1" 
                 sx={{ 
                   fontWeight: 600,
                   fontSize: '0.95rem',
-                  color: '#666'
+                  color: '#1976d2',
+                  letterSpacing: 0.3
                 }}
               >
                 {pageTitle}
