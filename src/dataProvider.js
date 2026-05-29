@@ -80,6 +80,8 @@ const dataProvider = {
         if (resource === "tokens") {
             const token = localStorage.getItem("token");
             const company = localStorage.getItem("comp");
+            const first = localStorage.getItem("adminInfo");
+            console.log(JSON.parse(first).firstName);
             const res = await fetch(`${API_URL}/token/`, {
               method: "POST",
               headers: {
@@ -89,7 +91,8 @@ const dataProvider = {
               body: JSON.stringify({
                 email: params.data.email,
                 code: params.data.code,
-                comp: company
+                comp: company,
+                user: first
               }),
             });
 
