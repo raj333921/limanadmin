@@ -17,7 +17,9 @@
     "created_at": "Created at",
     "create": "Create Token",
     "edit": "Edit Token",
-    "delete": "Delete"
+    "delete": "Delete",
+    "active": "Active",
+    "createdby": "Created By"
   },
   "questions": {
     "title": "Questions",
@@ -45,7 +47,7 @@
     "schoolNumber" : "Driving School Number",
     "drivingSchoolInfo": "Driving School Information",
     "adminInfo": "Admin Information",
-    "addressInfor": "Address Informtion",
+    "addressInfo": "Address Informtion",
     "address1" : "Address Line 1",
     "address2": "Address Line 2",
     "city": "City",

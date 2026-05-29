@@ -17,7 +17,9 @@
     "created_at": "Gemaakt op",
     "create": "Token Maken",
     "edit": "Token Bewerken",
-    "delete": "Verwijderen"
+    "delete": "Verwijderen",
+    "active": "Actief",
+    "createdby": "Aangemaakt door"
   },
   "questions": {
     "title": "Vragen",
@@ -45,7 +47,7 @@
     "schoolNumber": "Rijschoolnummer",
     "drivingSchoolInfo": "Rijschoolinformatie",
     "adminInfo": "Beheerdersinformatie",
-    "addressInfor": "Adresinformatie",
+    "addressInfo": "Adresinformatie",
     "address1": "Adresregel 1",
     "address2": "Adresregel 2",
     "city": "Stad",

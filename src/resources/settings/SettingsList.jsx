@@ -113,17 +113,7 @@ const SettingsList = (props) => {
                 >
                     {t('settings.header')}
                 </Typography>
-                <Box sx={{ width: 60, height: 4, background: 'linear-gradient(90deg, #1976d2 0%, #42a5f5 100%)', borderRadius: 2 }} />
-                <Typography 
-                    variant="body1" 
-                    sx={{ 
-                        marginTop: 1.5,
-                        color: '#666',
-                        fontSize: '0.95rem'
-                    }}
-                >
-                    {t('Manage your driving school and admin information')}
-                </Typography>
+
             </Box>
 
             {/* Main Content Grid */}

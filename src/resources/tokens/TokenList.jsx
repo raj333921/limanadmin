@@ -11,6 +11,8 @@ const TokenList = () => {
         <TextField source="email" label={t('tokens.email_id')} />
         <TextField source="code" label={t('tokens.test_code')} />
         <TextField source="is_used" label={t('tokens.used')} />
+      <TextField source="isActive" label={t('tokens.active')}  />
+      <TextField source="createdBy" label={t('tokens.createdby')}  />
         <DateField source="created_at" label={t('tokens.created_at')} showTime />
         <EditButton label={t('actions.edit')} />
         <DeleteButton label={t('actions.delete')} />

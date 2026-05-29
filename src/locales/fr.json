@@ -17,7 +17,9 @@
     "created_at": "Créé le",
     "create": "Créer un Jeton",
     "edit": "Modifier le Jeton",
-    "delete": "Supprimer"
+    "delete": "Supprimer",
+    "active": "Actif",
+    "createdby": "Créé par"
   },
   "questions": {
     "title": "Questions",
@@ -45,7 +47,7 @@
     "schoolNumber": "Numéro d’auto-école",
     "drivingSchoolInfo": "Informations de l’auto-école",
     "adminInfo": "Informations administrateur",
-    "addressInfor": "Informations d’adresse",
+    "addressInfo": "Informations d’adresse",
     "address1": "Adresse ligne 1",
     "address2": "Adresse ligne 2",
     "city": "Ville",
